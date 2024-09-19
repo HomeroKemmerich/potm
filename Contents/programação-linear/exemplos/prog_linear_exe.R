@@ -1,12 +1,12 @@
 ##############################################################################
-library(boot)
-simplex(f_obj, restricoes, disponibilidade, maxi = TRUE)
-#simplex(f_obj, rest1, disp1, rest2, disp2, rest3, disp3, maxi = TRUE)
-# ????1 <=              ????2 >=              ????3 =
+# library(boot)
+# simplex(f_obj, restricoes, disponibilidade, maxi = TRUE)
+# #simplex(f_obj, rest1, disp1, rest2, disp2, rest3, disp3, maxi = TRUE)
+# # ????1 <=              ????2 >=              ????3 =
 
-library(linprog)
-solveLP(f_obj, disponibilidade, restricoes, TRUE)
-solveLP(f_obj, disponibilidade, restricoes, TRUE, const.dir = c ( "<=", "<="))
+# library(linprog)
+# solveLP(f_obj, disponibilidade, restricoes, TRUE)
+# solveLP(f_obj, disponibilidade, restricoes, TRUE, const.dir = c ( "<=", "<="))
 
 ##############################################################################
 
@@ -15,19 +15,49 @@ solveLP(f_obj, disponibilidade, restricoes, TRUE, const.dir = c ( "<=", "<="))
 f_obj = c(3.20,4.00,4.70)
 restricoes = rbind(c(10,10,12),c(10,15.5,17),c(12,16,19),
                    c(19,21,24),c(19,21,22),c(25,32,45))
-disponibilidade = c(14400,21600,21600,28800,28800,50000)
+
+sixty_seconds = 60;
+sixty_minutes = 60;
+
+one_hour = sixty_minutes * sixty_seconds;
+hours = one_hour
+
+cutting_time = 4 * hours
+modelling_time = 6 * hours
+sharpening_time = 6 * hours
+handle_time = 8 * hours
+assembling_time = 8 * hours
+
+metal_sheet_width = 2.00
+metal_sheet_length = 1.00
+metal_sheet_area = metal_sheet_width * metal_sheet_length
+
+available_metal_sheets = 2.5;
+
+available_metal = available_metal_sheets * metal_sheet_area
+
+disponibilidade = c(cutting_time, modelling_time, sharpening_time, handle_time, assembling_time, available_metal)
 
 simplex(f_obj, restricoes, disponibilidade, maxi = TRUE)
+
 ##############################################################################
 
 ##############################################################################
 # exe 7b
 f_obj = c(3.40,3.00,2.50)
-restricoes = rbind(c(0.5,0.5,0.4),c(4,3,4),c(0.08,0.06,0.05),
-                   c(0.4,0.4,0.5),c(0,0,0.45),c(0.3,0.4,0.3))
+restricoes = rbind(
+        c(0.5,0.5,0.4),
+        c(4,3,4),
+        c(0.08,0.06,0.05),
+        c(0.4,0.4,0.5),
+        c(0,0,0.45),
+        c(0.3,0.4,0.3)
+)
 disponibilidade = c(40,276,6,34,4.5,40)
 
-simplex(f_obj, restricoes, disponibilidade, maxi = TRUE)
+resultado = simplex(f_obj, restricoes, disponibilidade, maxi = TRUE)
+print(resultado)
+
 ##############################################################################
 
 ##############################################################################

@@ -1,5 +1,5 @@
 # exemplo dos slides
-f_obj = c(22,18)
+f_obj = c(15, 18)
 restricoes_1 = c(1.5,1)
 restricoes_2 = c(3,2.5)
 restricoes   = rbind(restricoes_1, restricoes_2)
