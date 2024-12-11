@@ -1,8 +1,11 @@
-# Complexidade de algoritmos
+# Complexidades de algoritmos
 
 | Complexidade | Exemplos |
 | --- | --- |
+| $O(\log n)$ | Busca binária |
 | $O(n)$ | Busca Linear, iteração de um vetor |
-| $O(n^2)$ | Matrizes, bublesort e quicksort no pior caso |
-| $O(n!)$ | Caixeiro viajante (força bruta), cálculo de fatorial |
-| $O(n \ \log  n)$ | quicksort, mergesort, busca binária |
+| $O(n \ \log  n)$ | mergesort |
+| $O(n^2)$ | Ordenação simples |
+| $O(n^3)$ | Multiplicação de matrizes |
+| $O(2^n)$ | Caixeiro viajante |
+| $O(n!)$ | Cálculo de fatorial |
